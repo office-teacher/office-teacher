@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生活日本語 学習ページ</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family:
+      "Noto Sans JP",
+      "Yu Gothic",
+      "Hiragino Kaku Gothic ProN",
+      Meiryo,
+      sans-serif;
+    line-height: 1.8;
+    color: #374151;
+    background: #f7f9fc;
+  }
+
+  header {
+    background: linear-gradient(135deg, #dff3f1, #eaf0fb);
+    padding: 45px 20px;
+    text-align: center;
+    border-bottom: 1px solid #d9e2ec;
+  }
+
+  header h1 {
+    margin: 0 0 10px;
+    color: #285f6b;
+    font-size: clamp(1.7rem, 5vw, 2.5rem);
+  }
+
+  header p {
+    margin: 0;
+    color: #5f6f7a;
+    font-size: 1rem;
+  }
+
+  .container {
+    width: min(100% - 30px, 1000px);
+    margin: 0 auto;
+  }
+
+  .intro {
+    background: #ffffff;
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 3px 15px rgba(60, 80, 100, 0.07);
+  }
+
+  .intro h2 {
+    margin-top: 0;
+    color: #356d78;
+  }
+
+  .learning-list {
+    padding-left: 1.4em;
+  }
+
+  .learning-list li {
+    margin-bottom: 7px;
+  }
+
+  .theme-nav {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 25px 0;
+  }
+
+  .theme-nav a {
+    display: block;
+    padding: 12px 8px;
+    text-align: center;
+    text-decoration: none;
+    color: #315b67;
+    background: #e8f3f2;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
+  .theme-nav a:hover {
+    background: #d7eae8;
+  }
+
+  .theme {
+    background: #ffffff;
+    margin: 30px 0;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 3px 18px rgba(60, 80, 100, 0.07);
+  }
+
+  .theme-title {
+    margin: -30px -30px 25px;
+    padding: 18px 25px;
+    border-radius: 18px 18px 0 0;
+    color: #315b67;
+    background: #e5f2f0;
+    border-bottom: 1px solid #d5e6e4;
+  }
+
+  .theme-title span {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: #71818a;
+  }
+
+  h2 {
+    font-size: 1.45rem;
+  }
+
+  h3 {
+    color: #456b75;
+    margin-top: 30px;
+    padding-left: 12px;
+    border-left: 5px solid #9bcac4;
+  }
+
+  p {
+    margin: 10px 0;
+  }
+
+  .point {
+    background: #f4f8fb;
+    padding: 17px 20px;
+    border-radius: 12px;
+    margin: 15px 0;
+  }
+
+  .important {
+    background: #fff8e8;
+    border-left: 5px solid #e6c77a;
+    padding: 15px 18px;
+    border-radius: 8px;
+    margin: 18px 0;
+  }
+
+  .example {
+    background: #f0f7f4;
+    border-left: 5px solid #91c6b5;
+    padding: 15px 18px;
+    border-radius: 8px;
+    margin: 18px 0;
+  }
+
+  .example strong {
+    color: #477665;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0 25px;
+    background: #ffffff;
+  }
+
+  th,
+  td {
+    border: 1px solid #d8e0e6;
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background: #edf5f5;
+    color: #365f68;
+  }
+
+  .expression {
+    margin: 10px 0;
+    padding: 13px 16px;
+    background: #f7f5fb;
+    border-radius: 9px;
+  }
+
+  .expression .situation {
+    display: block;
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+  }
+
+  .quiz {
+    margin-top: 30px;
+    padding-top: 10px;
+  }
+
+  .question {
+    background: #fafbfd;
+    border: 1px solid #e0e6ec;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 16px 0;
+  }
+
+  .question-number {
+    color: #456b75;
+    font-weight: bold;
+  }
+
+  .question ul {
+    padding-left: 1.5em;
+    margin-bottom: 0;
+  }
+
+  .answer {
+    background: #eef7f3;
+    border: 1px solid #cfe4dc;
+    border-radius: 10px;
+    padding: 13px 17px;
+    margin-top: 12px;
+  }
+
+  .answer strong {
+    color: #3f7562;
+  }
+
+  .answer-section {
+    background: #ffffff;
+    margin: 35px 0;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 3px 18px rgba(60, 80, 100, 0.07);
+  }
+
+  .answer-section h2 {
+    color: #456b75;
+  }
+
+  .answer-table th:first-child,
+  .answer-table td:first-child {
+    width: 70px;
+    text-align: center;
+  }
+
+  footer {
+    margin-top: 40px;
+    padding: 30px 20px;
+    text-align: center;
+    background: #eaf0f5;
+    color: #6b7280;
+    font-size: 0.9rem;
+  }
+
+  .top-button {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: #79a9a5;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  }
+
+  @media (max-width: 700px) {
+    header {
+      padding: 32px 15px;
+    }
+
+    .container {
+      width: min(100% - 20px, 1000px);
+    }
+
+    .theme {
+      padding: 20px;
+      border-radius: 14px;
+    }
+
+    .theme-title {
+      margin: -20px -20px 20px;
+      padding: 15px 18px;
+      border-radius: 14px 14px 0 0;
+    }
+
+    .theme-nav {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .theme-nav a:last-child {
+      grid-column: 1 / -1;
+    }
+
+    table {
+      font-size: 0.9rem;
+    }
+
+    th,
+    td {
+      padding: 9px 8px;
+    }
+
+    .question {
+      padding: 15px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<header id="top">
+  <h1>生活日本語 学習ページ</h1>
+  <p>日本で生活するために知っておきたい「生活・マナー」を勉強しましょう</p>
+</header>
+
+<main class="container">
+
+  <section class="intro">
+    <h2>このページで学ぶこと</h2>
+    <p>
+      このページでは、日本で生活するときによく使う言葉や、
+      知っておきたいルール、マナーを勉強します。
+    </p>
+
+    <ul class="learning-list">
+      <li>災害が起きたときの安全な行動を知る</li>
+      <li>病院や薬局を利用するときの言葉とマナーを知る</li>
+      <li>アルバイトで必要な基本的なマナーを知る</li>
+      <li>ごみの分別や地域のルールを知る</li>
+      <li>進学・就職の面接で必要な基本的なマナーを知る</li>
+    </ul>
+
+    <div class="important">
+      <strong>勉強のポイント：</strong>
+      まず説明を読んで、そのあと「確認問題」に挑戦しましょう。
+      わからない言葉は表で確認してください。
+    </div>
+  </section>
+
+  <nav class="theme-nav">
+    <a href="#theme1">① 災害・防災</a>
+    <a href="#theme2">② 病院・薬局</a>
+    <a href="#theme3">③ アルバイト</a>
+    <a href="#theme4">④ ごみ・地域</a>
+    <a href="#theme5">⑤ 面接</a>
+  </nav>
+
+
+  <!-- テーマ1 -->
+  <section class="theme" id="theme1">
+
+    <div class="theme-title">
+      <span>テーマ1</span>
+      <h2>災害と防災</h2>
+    </div>
+
+    <h3>学習内容</h3>
+
+    <p>
+      日本では、地震、台風、大雨などの災害が起こることがあります。
+      災害が起きたときは、まず自分の安全を守ることが大切です。
+    </p>
+
+    <div class="point">
+      <strong>覚えておきたいこと</strong>
+      <ul>
+        <li>地震が起きたら、まず頭を守る。</li>
+        <li>揺れが止まったら、火を確認する。</li>
+        <li>危険な場所から安全な場所へ避難する。</li>
+        <li>台風や大雨のときは、川や海の近くに行かない。</li>
+        <li>地下や低い場所は、水が入ってくる危険がある。</li>
+        <li>家族と安否確認の方法を決めておく。</li>
+        <li>災害時には、正しい情報を確認する。</li>
+      </ul>
+    </div>
+
+    <h3>大切な言葉</h3>
+
+    <table>
+      <tr>
+        <th>言葉</th>
+        <th>かんたんな説明</th>
+        <th>例文</th>
+      </tr>
+      <tr>
+        <td>避難（ひなん）</td>
+        <td>危険な場所から安全な場所へ逃げること</td>
+        <td>危険なので、安全な場所へ避難します。</td>
+      </tr>
+      <tr>
+        <td>安否確認（あんぴかくにん）</td>
+        <td>家族や友人が無事かどうか確認すること</td>
+        <td>災害のあと、家族の安否確認をします。</td>
+      </tr>
+      <tr>
+        <td>避難所（ひなんじょ）</td>
+        <td>災害のときに一時的に生活できる場所</td>
+        <td>近くの避難所を確認しておきます。</td>
+      </tr>
+      <tr>
+        <td>非常食（ひじょうしょく）</td>
+        <td>災害に備えて準備しておく食べ物</td>
+        <td>非常食として缶詰を準備します。</td>
+      </tr>
+      <tr>
+        <td>防災（ぼうさい）</td>
+        <td>災害に備えて準備すること</td>
+        <td>家族で防災について話します。</td>
+      </tr>
+    </table>
+
+    <h3>よく使う表現</h3>
+
+    <div class="expression">
+      <span class="situation">家族と話す</span>
+      家族と安否確認の方法を決めておきます。
+    </div>
+
+    <div class="expression">
+      <span class="situation">災害について話す</span>
+      災害が起きたときは、正しい情報を確認します。
+    </div>
+
+    <div class="expression">
+      <span class="situation">避難するとき</span>
+      危険なので、安全な場所へ避難します。
+    </div>
+
+    <h3>確認問題</h3>
+
+    <div class="question">
+      <span class="question-number">問題1</span>
+      <p>「避難（ひなん）」の意味として正しいものはどれですか。</p>
+      <ul>
+        <li>A. 危険な場所から安全な場所へ逃げること</li>
+        <li>B. 家族や友人が無事かどうか確認すること</li>
+        <li>C. 災害のときに一時的に生活できる場所</li>
+        <li>D. 災害に備えて準備しておく食べ物</li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <span class="question-number">問題2</span>
+      <p>地震が起きたとき、まず最初にしなければならない行動はどれですか。</p>
+      <ul>
+        <li>A. 机の下に入ったり、かばんで頭を守ったりする</li>
+        <li>B. すぐに外へ走って逃げる</li>
+        <li>C. 友達に電話をかける</li>
+        <li>D. 電気やガスの会社に連絡する</li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <span class="question-number">問題3</span>
+      <p>台風や大雨のときは、川や海の近くに行って様子を見てもよい。</p>
+      <ul>
+        <li>○</li>
+        <li>×</li>
+      </ul>
+    </div>
+
+  </section>
+
+
+  <!-- テーマ2 -->
+  <section class="theme" id="theme2">
+
+    <div class="theme-title">
+      <span>テーマ2</span>
+      <h2>病院・薬局の利用</h2>
+    </div>
+
+    <h3>学習内容</h3>
+
+    <p>
+      病院では、自分の症状をできるだけわかりやすく伝えることが大切です。
+      初めて病院へ行くときは、受付で保険証を出し、問診票を書くことが多いです。
+    </p>
+
+    <div class="point">
+      <strong>病院で覚えておきたいこと</strong>
+      <ul>
+        <li>受付で保険証を出す。</li>
+        <li>問診票に名前や症状などを書く。</li>
+        <li>症状は「いつから」「どこが」「どのくらい」を伝える。</li>
+        <li>医者が必要な薬を書いた紙を「処方せん」という。</li>
+        <li>薬の量を自分で増やさない。</li>
+        <li>自分の薬を友人にあげない。</li>
+        <li>薬で気分が悪くなったら、医者や薬剤師に相談する。</li>
+      </ul>
+    </div>
+
+    <h3>大切な言葉</h3>
+
+    <table>
+      <tr>
+        <th>言葉</th>
+        <th>かんたんな説明</th>
+        <th>例文</th>
+      </tr>
+      <tr>
+        <td>診察（しんさつ）</td>
+        <td>医者が患者の体の状態を調べること</td>
+        <td>これから診察を受けます。</td>
+      </tr>
+      <tr>
+        <td>問診票（もんしんひょう）</td>
+        <td>名前、症状、アレルギーなどを書く紙</td>
+        <td>受付で問診票を書きます。</td>
+      </tr>
+      <tr>
+        <td>処方せん（しょほうせん）</td>
+        <td>医者が必要な薬について書いた紙</td>
+        <td>処方せんを薬局へ持っていきます。</td>
+      </tr>
+      <tr>
+        <td>食前（しょくぜん）</td>
+        <td>食事の前</td>
+        <td>この薬は食前に飲みます。</td>
+      </tr>
+      <tr>
+        <td>食後（しょくご）</td>
+        <td>食事の後</td>
+        <td>この薬は食後に飲みます。</td>
+      </tr>
+      <tr>
+        <td>薬剤師（やくざいし）</td>
+        <td>薬について説明したり、相談に答えたりする人</td>
+        <td>薬について薬剤師に質問します。</td>
+      </tr>
+    </table>
+
+    <h3>よく使う表現</h3>
+
+    <div class="expression">
+      <span class="situation">症状を説明する</span>
+      いつから始まったか、どこが痛いか、どのくらい痛いかを伝えます。
+    </div>
+
+    <div class="expression">
+      <span class="situation">薬について質問する</span>
+      この薬はいつ飲めばいいですか。
+    </div>
+
+    <div class="expression">
+      <span class="situation">体調が悪くなったとき</span>
+      薬を飲んで気分が悪くなりました。
+    </div>
+
+    <h3>確認問題</h3>
+
+    <div class="question">
+      <span class="question-number">問題1</span>
+      <p>「診察（しんさつ）」の意味として正しいものはどれですか。</p>
+      <ul>
+        <li>A. 医者が患者の体の状態を調べること</li>
+        <li>B. 薬局で薬を買うこと</li>
+        <li>C. 病院の受付で名前を書くこと</li>
+        <li>D. 健康保険に入ること</li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <span class="question-number">問題2</span>
+      <p>初めて行く病院では、受付で保険証を出し、問診票を書くことが多い。</p>
+      <ul>
+        <li>○</li>
+        <li>×</li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <span class="question-number">問題3</span>
+      <p>薬を飲んでもすぐによくならないとき、自分の判断で飲む量を増やしてもよい。</p>
+      <ul>
+        <li>○</li>
+        <li>×</li>
+      </ul>
+    </div>
+
+  </section>
+
+
+  <!-- テーマ3 -->
+  <section class="theme" id="theme3">
+
+    <div class="theme-title">
+      <span>テーマ3</span>
+      <h2>アルバイトのマナー</h2>
+    </div>
+
+    <h3>学習内容</h3>
+
+    <p>
+      アルバイトでは、時間を守ること、職場へきちんと連絡すること、
+      わからないことを相談することが大切です。
+    </p>
+
+    <div class="point">
+      <strong>アルバイトで覚えておきたいこと</strong>
+      <ul>
+        <li>勤務開始時間には、仕事を始められる状態にしておく。</li>
+        <li>遅刻・欠勤するときは、できるだけ早く自分で職場へ連絡する。</li>
+        <li>わからないことは、早めに確認・相談する。</li>
+        <li>「報告・連絡・相談」を大切にする。</li>
+        <li>無断欠勤をしない。</li>
+        <li>仕事でミスをしたら謝り、今後気をつけることを伝える。</li>
+      </ul>
+    </div>
+
+    <h3>大切な言葉</h3>
+
+    <table>
+      <tr>
+        <th>言葉</th>
+        <th>かんたんな説明</th>
+        <th>例文</th>
+      </tr>
+      <tr>
+        <td>欠勤（けっきん）</td>
+        <td>仕事を休むこと</td>
+        <td>病気で今日は欠勤します。</td>
+      </tr>
+      <tr>
+        <td>遅刻（ちこく）</td>
+        <td>決められた時間より遅くなること</td>
+        <td>電車が遅れて、10分ほど遅刻します。</td>
+      </tr>
+      <tr>
+        <td>シフト</td>
+        <td>働く日や時間の予定</td>
+        <td>来週のシフトを確認します。</td>
+      </tr>
+      <tr>
+        <td>報告（ほうこく）</td>
+        <td>仕事の結果や問題を上司などに伝えること</td>
+        <td>仕事が終わったので、報告します。</td>
+      </tr>
+      <tr>
+        <td>連絡（れんらく）</td>
+        <td>必要な情報を相手に伝えること</td>
+        <td>遅れるときは職場に連絡します。</td>
+      </tr>
+      <tr>
+        <td>相談（そうだん）</td>
+        <td>困ったことを話して、意見や助けをもらうこと</td>
+        <td>わからないことは先輩に相談します。</td>
+      </tr>
+      <tr>
+        <td>無断欠勤（むだんけっきん）</td>
+        <td>連絡をしないで仕事を休むこと</td>
+        <td>無断欠勤をしないようにします。</td>
+      </tr>
+    </table>
+
+    <h3>よく使う表現</h3>
+
+    <div class="expression">
+      <span class="situation">遅刻するとき</span>
+      電車が遅れているため、10分ほど遅れます。
+    </div>
+
+    <div class="expression">
+      <span class="situation">体調不良で休むとき</span>
+      本日、体調不良のため、お休みさせていただきたいです。
+    </div>
+
+    <div class="expression">
+      <span class="situation">ミスをしたとき</span>
+      申し訳ありません。今後気をつけます。
+    </div>
+
+    <div class="expression">
+      <span class="situation">わからないとき</span>
+      わからないので、教えていただけますか。
+    </div>
+
+    <h3>確認問題</h3>
+
+    <div class="question">
+      <span class="question-number">問題1</span>
+      <p>「欠勤（けっきん）」の意味として正しいものはどれですか。</p>
+      <ul>
+        <li>A. 仕事を休むこと</li>
+        <li>B. 決められた時間に遅れること</li>
+        <li>C. 仕事を終えること</li>
+        <li>D. 新しい仕事を探すこと</li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <span class="question-number">問題2</span>
+      <p>17時から勤務の場合、17時ちょうどに店に着けばマナーとして問題ない。</p>
+      <ul>
+        <li>○</li>
+        <li>×</li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <span class="question-number">問題3</span>
+      <p>仕事でわからないことがあっても、聞かずに自分で考えてそのまま進めるのがよい。</p>
+      <ul>
+        <li>○</li>
+        <li>×</li>
+      </ul>
+    </div>
+
+  </section>
+
+
+  <!-- テーマ4 -->
+  <section class="theme" id="theme4">
+
+    <div class="theme-title">
+      <span>テーマ4</span>
+      <h2>ごみ出しと地域ルール</h2>
+    </div>
+
+    <h3>学習内容</h3>
+
+    <p>
+      ごみの出し方や分別のルールは、住んでいる地域によって異なります。
+      引っ越したら、その地域のごみ出しカレンダーなどを確認することが大切です。
+    </p>
+
+    <div class="point">
+      <strong>ごみ出しで覚えておきたいこと</strong>
+      <ul>
+        <li>ごみを種類ごとに分けることを「分別」という。</li>
+        <li>地域のごみ出しカレンダーを確認する。</li>
+        <li>ごみは決められた収集日に出す。</li>
+        <li>収集日の前の日の夜など、早く出しすぎない。</li>
+        <li>ペットボトルは中を軽く洗い、ラベルとキャップを外す。</li>
+        <li>缶や瓶は中をすすいでから出す。</li>
+        <li>粗大ごみは、市区町村への申し込みや手数料が必要な場合がある。</li>
+      </ul>
+    </div>
+
+    <h3>大切な言葉</h3>
+
+    <table>
+      <tr>
+        <th>言葉</th>
+        <th>かんたんな説明</th>
+        <th>例文</th>
+      </tr>
+      <tr>
+        <td>分別（ぶんべつ）</td>
+        <td>ごみを種類ごとに分けること</td>
+        <td>ごみをきちんと分別します。</td>
+      </tr>
+      <tr>
+        <td>資源ごみ（しげんごみ）</td>
+        <td>リサイクルできるごみ</td>
+        <td>びんや缶は資源ごみに出します。</td>
+      </tr>
+      <tr>
+        <td>可燃ごみ（かねんごみ）</td>
+        <td>燃やすことができるごみ</td>
+        <td>生ごみは可燃ごみに出します。</td>
+      </tr>
+      <tr>
+        <td>粗大ごみ（そだいごみ）</td>
+        <td>普通のごみ袋に入らない大きなごみ</td>
+        <td>大きな机は粗大ごみです。</td>
+      </tr>
+      <tr>
+        <td>収集日（しゅうしゅうび）</td>
+        <td>地域でごみを集める日</td>
+        <td>今日は燃えるごみの収集日です。</td>
+      </tr>
+      <tr>
+        <td>不法投棄（ふほうとうき）</td>
+        <td>決められた方法ではない場所などに勝手にごみを捨てること</td>
+        <td>ごみを勝手な場所に置いてはいけません。</td>
+      </tr>
+    </table>
+
+    <h3>よく使う表現</h3>
+
+    <div class="expression">
+      <span class="situation">ごみ出しのルールを確認する</span>
+      この地域のごみ出しカレンダーを確認します。
+    </div>
+
+    <div class="expression">
+      <span class="situation">分別について質問する</span>
+      このごみは何ごみですか。
+    </div>
+
+    <div class="expression">
+      <span class="situation">収集日を確認する</span>
+      次の収集日はいつですか。
+    </div>
+
+    <h3>確認問題</h3>
+
+    <div class="question">
+      <span class="question-number">問題1</span>
+      <p>「分別（ぶんべつ）」の意味として正しいものはどれですか。</p>
+      <ul>
+        <li>A. ごみを種類ごとに分けること</li>
+        <li>B. ごみを拾ってきれいにすること</li>
+        <li>C. ごみを燃やして小さくすること</li>
+        <li>D. ごみを家の中にためておくこと</li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <span class="question-number">問題2</span>
+      <p>ごみの出し方や分別のルールは、日本全国どこでも完全に同じである。</p>
+      <ul>
+        <li>○</li>
+        <li>×</li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <span class="question-number">問題3</span>
+      <p>引っ越したあと、正しいごみ出しのために最初に確認すべきものは何ですか。</p>
+      <ul>
+        <li>A. 住んでいる地域のごみ出しカレンダー</li>
+        <li>B. 近所の人のごみ袋の中身</li>
+        <li>C. コンビニのゴミ箱の場所</li>
+        <li>D. 以前住んでいた街のルール</li>
+      </ul>
+    </div>
+
+  </section>
+
+
+  <!-- テーマ5 -->
+  <section class="theme" id="theme5">
+
+    <div class="theme-title">
+      <span>テーマ5</span>
+      <h2>進学・就職面接の基本</h2>
+    </div>
+
+    <h3>学習内容</h3>
+
+    <p>
+      進学や就職の面接では、自分の考えや経験を相手にわかりやすく伝えることが大切です。
+      面接では、完璧な日本語だけではなく、準備、礼儀、わかりやすい説明、
+      前向きな態度が大切です。
+    </p>
+
+    <div class="point">
+      <strong>面接で覚えておきたいこと</strong>
+      <ul>
+        <li>入室するときはノックをして「失礼いたします」と言う。</li>
+        <li>椅子には「どうぞ」と言われてから座る。</li>
+        <li>志望理由は、自分の目標と学校・会社の特徴をつなげて話す。</li>
+        <li>自分の良いところは「長所」として説明する。</li>
+        <li>自分の弱いところは「短所」という。</li>
+        <li>質問がわからないときは、聞き直してもよい。</li>
+        <li>話すときは結論から話す。</li>
+        <li>面接の最後には、お礼を伝える。</li>
+      </ul>
+    </div>
+
+    <h3>大切な言葉</h3>
+
+    <table>
+      <tr>
+        <th>言葉</th>
+        <th>かんたんな説明</th>
+        <th>例文</th>
+      </tr>
+      <tr>
+        <td>自己PR（じこPR）</td>
+        <td>自分の長所や経験を相手に伝えること</td>
+        <td>自己PRで自分の長所を話します。</td>
+      </tr>
+      <tr>
+        <td>志望理由（しぼうりゆう）</td>
+        <td>その学校や会社を選んだ理由</td>
+        <td>志望理由を説明します。</td>
+      </tr>
+      <tr>
+        <td>長所（ちょうしょ）</td>
+        <td>自分の良いところ、強み</td>
+        <td>私の長所は、最後まで努力できるところです。</td>
+      </tr>
+      <tr>
+        <td>短所（たんしょ）</td>
+        <td>自分の弱いところ、改善したいところ</td>
+        <td>私の短所は、心配しすぎるところです。</td>
+      </tr>
+      <tr>
+        <td>結論（けつろん）</td>
+        <td>話の中で一番伝えたい答え</td>
+        <td>まず結論から話します。</td>
+      </tr>
+      <tr>
+        <td>礼儀（れいぎ）</td>
+        <td>相手を大切にするための丁寧な行動や態度</td>
+        <td>面接では礼儀を大切にします。</td>
+      </tr>
+    </table>
+
+    <h3>よく使う表現</h3>
+
+    <div class="expression">
+      <span class="situation">入室するとき</span>
+      失礼いたします。
+    </div>
+
+    <div class="expression">
+      <span class="situation">長所を説明するとき</span>
+      私の長所は、最後まであきらめずに努力できるところです。
+    </div>
+
+    <div class="expression">
+      <span class="situation">質問が聞き取れなかったとき</span>
+      もう一度質問をお願いしてもよろしいでしょうか。
+    </div>
+
+    <div class="expression">
+      <span class="situation">面接が終わったとき</span>
+      本日はお時間をいただき、ありがとうございました。
+    </div>
+
+    <h3>確認問題</h3>
+
+    <div class="question">
+      <span class="question-number">問題1</span>
+      <p>「自己PR（じこPR）」の意味として正しいものはどれですか。</p>
+      <ul>
+        <li>A. 自分の長所や経験を相手に伝えること</li>
+        <li>B. 自分の住所や生年月日を説明すること</li>
+        <li>C. 自分の好きな食べ物を発表すること</li>
+        <li>D. 相手の長所をほめること</li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <span class="question-number">問題2</span>
+      <p>面接で部屋に入るときのマナーとして正しいものはどれですか。</p>
+      <ul>
+        <li>A. ドアをノックし、「失礼いたします」と言って入る</li>
+        <li>B. ノックをしないで静かに入る</li>
+        <li>C. ドアを開けたまま入る</li>
+        <li>D. 挨拶をしないでそのまま椅子に座る</li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <span class="question-number">問題3</span>
+      <p>面接で話すとき、相手に理解してもらいやすくするための工夫はどれですか。</p>
+      <ul>
+        <li>A. 結論から話す</li>
+        <li>B. できるだけ長く話し続ける</li>
+        <li>C. 下を向いて小さな声で話す</li>
+        <li>D. 専門用語をたくさん使う</li>
+      </ul>
+    </div>
+
+  </section>
+
+
+  <!-- 答え -->
+  <section class="answer-section" id="answers">
+
+    <h2>確認問題の答え</h2>
+
+    <p>
+      もう一度問題を考えてから、答えを確認しましょう。
+    </p>
+
+    <h3>テーマ1　災害と防災</h3>
+
+    <table class="answer-table">
+      <tr>
+        <th>問題</th>
+        <th>答え</th>
+        <th>ポイント</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>A</td>
+        <td>危険な場所から安全な場所へ逃げることが「避難」です。</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>A</td>
+        <td>地震では、まず頭を守ります。</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>×</td>
+        <td>台風や大雨のときは、川や海の近くに行ってはいけません。</td>
+      </tr>
+    </table>
+
+    <h3>テーマ2　病院・薬局の利用</h3>
+
+    <table class="answer-table">
+      <tr>
+        <th>問題</th>
+        <th>答え</th>
+        <th>ポイント</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>A</td>
+        <td>「診察」は医者が患者の体の状態を調べることです。</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>○</td>
+        <td>初めての病院では、保険証を出して問診票を書くことが多いです。</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>×</td>
+        <td>薬の量を自分の判断で増やしてはいけません。</td>
+      </tr>
+    </table>
+
+    <h3>テーマ3　アルバイトのマナー</h3>
+
+    <table class="answer-table">
+      <tr>
+        <th>問題</th>
+        <th>答え</th>
+        <th>ポイント</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>A</td>
+        <td>「欠勤」は仕事を休むことです。</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>×</td>
+        <td>開始時間には、仕事を始められる状態にしておくことが大切です。</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>×</td>
+        <td>わからないことは、早めに確認・相談します。</td>
+      </tr>
+    </table>
+
+    <h3>テーマ4　ごみ出しと地域ルール</h3>
+
+    <table class="answer-table">
+      <tr>
+        <th>問題</th>
+        <th>答え</th>
+        <th>ポイント</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>A</td>
+        <td>「分別」はごみを種類ごとに分けることです。</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>×</td>
+        <td>ごみのルールは市区町村など地域によって異なります。</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>A</td>
+        <td>引っ越したら、住んでいる地域のごみ出しカレンダーを確認します。</td>
+      </tr>
+    </table>
+
+    <h3>テーマ5　進学・就職面接の基本</h3>
+
+    <table class="answer-table">
+      <tr>
+        <th>問題</th>
+        <th>答え</th>
+        <th>ポイント</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>A</td>
+        <td>「自己PR」は自分の長所や経験を相手に伝えることです。</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>A</td>
+        <td>ノックをして「失礼いたします」と言って入室します。</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>A</td>
+        <td>面接では、結論から話すと相手に伝わりやすくなります。</td>
+      </tr>
+    </table>
+
+  </section>
+
+</main>
+
+<footer>
+  <p>生活日本語 学習ページ</p>
+  <p>災害と防災・病院と薬局・アルバイト・ごみ出し・面接を復習しましょう。</p>
+</footer>
+
+<button class="top-button" onclick="goTop()" aria-label="ページの上へ">↑</button>
+
+<script>
+  function goTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+</script>
+
+</body>
+</html>
